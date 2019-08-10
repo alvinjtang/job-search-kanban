@@ -1,12 +1,14 @@
 import React from 'react';
 import '../stylesheets/card.css';
 
-export default () => {
+export default ({card}) => {
+    let {companyName, position, url, notes} = card;
     return (
         <div className='card'>
-            Company Name<br />
-            Position<br />
-            Date<br />
+            {companyName}<br />
+            {position}<br />
+            {url}<br />
+            {notes}<br />
         </div>
     )
 }
