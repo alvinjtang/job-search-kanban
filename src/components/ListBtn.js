@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import '../stylesheets/column.css'
+import '../stylesheets/list.css'
 
 export default ({lists, setLists}) => {
 
@@ -16,25 +16,31 @@ export default ({lists, setLists}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setLists([...lists, list])
+        setLists([...lists, list]);
+        setList({...list, name: ''});
+        setShowForm(false)
     }
 
     return (
-        <div className="col">
-            <div className='col-title' onClick={() => setShowForm(!showForm)}>
+        <div>
+            <button id='list-add-btn' onClick={() => setShowForm(!showForm)}>
                 +
-            </div>
+            </button>
             {showForm ? 
-                <form onSubmit={handleSubmit}>
-                    <label>Name</label>
-                    <input 
-                        type='text'
-                        name='name'
-                        value={list.name}
-                        onChange={handleChange}
-                    />
-                    <button type='submit'>Submit</button>
-                </form>
+                <div className="list-title">
+                    <form onSubmit={handleSubmit}>
+                        <label>Name</label>
+                        <br />
+                        <input 
+                            type='text'
+                            name='name'
+                            value={list.name}
+                            onChange={handleChange}
+                        />
+                        <br />
+                        <button type='submit'>Submit</button>
+                    </form>
+                </div>
             :   null
             }
         </div>

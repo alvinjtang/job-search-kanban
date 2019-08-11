@@ -1,12 +1,12 @@
 import React from 'react';
 import Card from './Card';
-import '../stylesheets/column.css'
+import '../stylesheets/list.css'
 
 export default ({list}) => {
     const {name, cards} = list;
     return (
-        <div className="col">
-            <div className='col-title'>
+        <div className="list">
+            <div className='list-title'>
                 {name}
             </div>
             <div>

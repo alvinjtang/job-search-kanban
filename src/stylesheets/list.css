@@ -1,0 +1,32 @@
+
+.list {
+    width: 250px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.list-title {
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(160, 160, 252);
+    border-radius: 1vmin;
+    width: 200px;
+}
+
+#list-add-btn {
+    margin: 10px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: rgb(38, 97, 38);
+    color: white;
+}
+
+#list-add-btn:focus {
+    outline: none;
+}
