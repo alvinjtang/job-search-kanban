@@ -1,47 +1,29 @@
 import React, {useState} from 'react';
+import ListForm from './ListForm'
 import '../stylesheets/list.css'
 
 export default ({lists, setLists}) => {
 
-    const [showForm, setShowForm] = useState(false);
+    const [showBtn, setShowBtn] = useState(false);
     const [list, setList] = useState({
         name: '',
         cards: [],
     })
 
-    const handleChange = (e) => {
-        e.persist()
-        setList({...list, [e.target.name]: e.target.value});
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setLists([...lists, list]);
-        setList({...list, name: ''});
-        setShowForm(false)
+    const toggleBtn = () => {
+        setShowBtn(!showBtn);
     }
 
     return (
         <div>
-            <button id='list-add-btn' onClick={() => setShowForm(!showForm)}>
-                +
+            <button id='list-add-btn' className={showBtn ? 'red' : 'green'} onClick={toggleBtn}>
+                {showBtn ? '-' : '+'}
             </button>
-            {showForm ? 
-                <div className="list-title">
-                    <form onSubmit={handleSubmit}>
-                        <label>Name</label>
-                        <br />
-                        <input 
-                            type='text'
-                            name='name'
-                            value={list.name}
-                            onChange={handleChange}
-                        />
-                        <br />
-                        <button type='submit'>Submit</button>
-                    </form>
-                </div>
-            :   null
+            
+            {showBtn ? 
+                <ListForm props={{list, lists, setList, setLists, setShowBtn}} />
+                : 
+                null
             }
         </div>
     )

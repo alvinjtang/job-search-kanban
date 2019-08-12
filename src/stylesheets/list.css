@@ -23,10 +23,22 @@
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    background-color: rgb(38, 97, 38);
     color: white;
+}
+
+.green {
+    background-color: rgb(38, 97, 38);
+}
+
+.red {
+    background-color: rgb(97, 38, 38);
 }
 
 #list-add-btn:focus {
     outline: none;
+}
+
+.delete-list-btn {
+    position: absolute;
+    transform: translateX(60px);
 }
